@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     addCard(){
-      console.log(this.englishWord)
+      this.$store.commit('createCard', {english: this.englishWord, japanese: this.japaneseWord})
     }
   }
 }

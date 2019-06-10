@@ -30,6 +30,10 @@ ul{
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+
+.card-item{
+    width: 24%;
+}
 </style>
 
 

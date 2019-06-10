@@ -8,9 +8,11 @@ export default new Vuex.Store({
     cards: [{english: 'hello', japanese: 'こんにちは'}],
   },
   mutations: {
-
+    createCard(state, card){
+      state.cards.push(card)
+    }
   },
   actions: {
-
+    
   }
 })
