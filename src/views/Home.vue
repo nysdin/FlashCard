@@ -1,18 +1,47 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>英単語学習サイト</h1>
+
+    <div class="add-form">
+      英語: <input type="text" v-model="englishWord"><br/>
+      日本語：<input type="text" v-model="japaneseWord"><br/>
+      <button @click="addCard">追加</button>
+    </div>
+
+    <CardList />
+
+    <router-link to="/test">テストを実行</router-link>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CardList from '@/components/CardList.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    CardList
+  },
+  data(){
+    return {
+      englishWord: '',
+      japaneseWord: '',
+    }
+  },
+  methods: {
+    addCard(){
+      console.log(this.englishWord)
+    }
   }
 }
 </script>
+
+<style>
+.add-form{
+  padding: 30px;
+  width: 50%;
+  margin: 0 auto 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+</style>
