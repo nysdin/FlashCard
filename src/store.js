@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cards: [{english: 'hello', japanese: 'こんにちは'}],
+    cards: [{id: 1, english: 'hello', japanese: 'こんにちは'}],
   },
   mutations: {
     createCard(state, card){

@@ -1,7 +1,7 @@
 <template>
     <div class="card-list-container">
         <ul class="cards-box">
-            <li class="card-item" v-for="(card, index) in cards" :key="index">
+            <li class="card-item" v-for="card in cards" :key="card.id">
                 <p>{{ card.english }}</p>
                 <p>{{ card.japanese }}</p>
             </li>
