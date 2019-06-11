@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         answerQuize(quize){
-            //答えが一致したら正答数を加算、不一致ならwrongListにidを記録
+            //答えが一致したら正答数を加算、不一致ならwrongListにcardを記録
             if(this.english === this.quize.english){
                 this.correctNumber += 1
             } else {

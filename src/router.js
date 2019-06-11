@@ -24,7 +24,12 @@ export default new Router({
     {
       path: '/result/:count',
       name: 'result',
-      component: () => import(/* webpackChunkName: result" */'./views/Result.vue')
+      component: () => import(/* webpackChunkName: "result" */'./views/Result.vue')
+    },
+    {
+      path: '/wrong-test',
+      name: 'wrong-test',
+      component: () => import(/* webpackChunkName: "wrongTest" */'./views/WrongTest.vue')
     }
   ]
 })

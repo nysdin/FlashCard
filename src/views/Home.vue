@@ -11,6 +11,7 @@
     <CardList />
 
     <router-link to="/test">テストを実行</router-link>
+    <router-link to="/wrong-test"></router-link>
   </div>
 </template>
 
