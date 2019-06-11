@@ -22,18 +22,18 @@ export default {
     },
     computed: {
         quize(){
-            return this.$store.state.wrongCards[quizeNumber]
+            return this.$store.state.wrongCards[this.quizeNumber]
         }
     },
     methods: {
-        anserQuize(quize){
+        answerQuize(quize){
             //正解したら正答数を加算
             if(this.english === this.quize.english){
                 this.correctNumber += 1
             }
             //質問が終わったら結果画面に遷移
             if(this.quizeNumber === this.$store.state.wrongCards.length - 1){
-                this.$router.push({ name: 'result', params: { count: this.quizeNumber } })
+                this.$router.push({ name: 'result', params: { count: this.correctNumber } })
             }
             this.quizeNumber += 1
             this.english = ''
