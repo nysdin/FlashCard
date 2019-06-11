@@ -16,6 +16,7 @@ export default {
     data(){
         return {
             quizeNumber: 0,
+            correctNumber: 0,
             english: '',
         }
     },
@@ -25,7 +26,18 @@ export default {
         }
     },
     methods: {
-        
+        anserQuize(quize){
+            //正解したら正答数を加算
+            if(this.english === this.quize.english){
+                this.correctNumber += 1
+            }
+            //質問が終わったら結果画面に遷移
+            if(this.quizeNumber === this.$store.state.wrongCards.length - 1){
+                this.$router.push({ name: 'result', params: { count: this.quizeNumber } })
+            }
+            this.quizeNumber += 1
+            this.english = ''
+        }
     }
 }
 </script>
