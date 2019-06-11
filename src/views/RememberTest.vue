@@ -1,7 +1,7 @@
 <template>
     <div class="test-container">
         <div class="test-box">
-            <h1>1問目 / {{ this.$store.state.cards.length }}問中</h1>
+            <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.cards.length }}問中</h1>
             <p>{{ quize.japanese }}</p>
             答え： <input type="text" v-model="english" @keydown.enter="answerQuize">
         </div>
