@@ -3,7 +3,7 @@
         <div class="test-box">
             <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.cards.length }}問中</h1>
             <p>{{ quize.japanese }}</p>
-            答え： <input type="text" v-model="english" @keydown.enter="answerQuize">
+            答え： <input type="text" v-model="english" @keydown.enter="answerQuize(quize)">
         </div>
 
         <router-link to="/">ホームへ戻る</router-link>
@@ -26,10 +26,12 @@ export default {
         },
     },
     methods: {
-        answerQuize(){
-            //答えが一致したら正答数を加算
+        answerQuize(quize){
+            //答えが一致したら正答数を加算、不一致ならwrongListにidを記録
             if(this.english === this.quize.english){
                 this.correctNumber += 1
+            } else {
+                this.$store.commit('pushWrongCard', quize)
             }
             //問題数が最後なら結果画面に遷移
             if(this.quizeNumber === this.$store.state.cards.length - 1 ){
