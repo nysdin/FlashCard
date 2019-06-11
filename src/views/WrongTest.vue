@@ -19,6 +19,14 @@ export default {
             english: '',
         }
     },
+    computed: {
+        quize(){
+            return this.$store.state.wrongCards[quizeNumber]
+        }
+    },
+    methods: {
+        
+    }
 }
 </script>
 
