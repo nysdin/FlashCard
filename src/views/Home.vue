@@ -30,6 +30,16 @@ export default {
       japaneseWord: '',
     }
   },
+  computed: {
+    //間違えた単語の配列に要素があるかどうかを判定
+    wrongCardsEmpty(){
+      if(this.$store.state.wrongCards.length){
+        return true 
+      }else {
+        return false
+      }
+    }
+  },
   methods: {
     addCard(){
       this.$store.commit('createCard', {english: this.englishWord, japanese: this.japaneseWord})
