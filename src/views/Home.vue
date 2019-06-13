@@ -11,7 +11,9 @@
     <CardList />
 
     <router-link to="/test">テストを実行</router-link>
-    <router-link to="/wrong-test">間違えた問題のテスト</router-link>
+    <div class="wrong-test" v-if="wrongCardsEmpty">
+      <router-link to="/wrong-test">間違えた問題のテスト</router-link>
+    </div>
   </div>
 </template>
 
@@ -35,9 +37,8 @@ export default {
     wrongCardsEmpty(){
       if(this.$store.state.wrongCards.length){
         return true 
-      }else {
-        return false
       }
+      return false
     }
   },
   methods: {
