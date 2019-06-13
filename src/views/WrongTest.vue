@@ -30,6 +30,7 @@ export default {
             //正解したら正答数を加算
             if(this.english === this.quize.english){
                 this.correctNumber += 1
+                this.$store.commit('removeWrongCard', this.quize)
             }
             //質問が終わったら結果画面に遷移
             if(this.quizeNumber === this.$store.state.wrongCards.length - 1){

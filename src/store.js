@@ -18,7 +18,14 @@ export default new Vuex.Store({
       if(!state.wrongCards.includes(card)){
         state.wrongCards.push(card)
       }
-    }
+    },
+    //間違えた問題に正解したらwrongCardsから削除
+    removeWrongCard(state, card){
+      const newCards = state.wrongCards.filter(function(item){
+        return card !== item
+      })
+      state.wrongCards = newCards
+    },
   },
   actions: {
     
