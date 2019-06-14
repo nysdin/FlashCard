@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <router-view/>
+      <el-tabs :tab-position="'bottom'" @tab-click="changePage" :stretch="true">
+        <el-tab-pane label="Home"></el-tab-pane>
+        <el-tab-pane label="Test"></el-tab-pane>
+        <el-tab-pane label="WrongCard"></el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
