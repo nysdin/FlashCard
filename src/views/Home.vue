@@ -20,6 +20,7 @@
 <script>
 // @ is an alias to /src
 import CardList from '@/components/CardList.vue'
+import { log } from 'util';
 
 export default {
   name: 'home',
@@ -44,6 +45,8 @@ export default {
   methods: {
     addCard(){
       this.$store.commit('createCard', {english: this.englishWord, japanese: this.japaneseWord})
+      this.englishWord = '' 
+      this.japaneseWord = ''
     }
   }
 }
