@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     cards: [{id: 1, english: 'hello', japanese: 'こんにちは'}],
     wrongCards: [],
+    correctCards: [],
   },
   mutations: {
     //cardを追加
@@ -26,6 +27,10 @@ export default new Vuex.Store({
       })
       state.wrongCards = newCards
     },
+    //正解した問題をcorrectCardsに追加
+    pushCorrectCard(state, card){
+      state.correctCards.push(card)
+    }
   },
   actions: {
     
