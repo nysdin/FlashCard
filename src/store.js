@@ -25,6 +25,8 @@ export default new Vuex.Store({
       state.wrongCards = state.wrongCards.filter(function(card){
         return state.correctCards.indexOf(card) === -1
       })
+      //correctCardsを初期化
+      state.correctCards = []
     },
     //正解した問題をcorrectCardsに追加
     pushCorrectCard(state, card){
