@@ -20,12 +20,11 @@ export default new Vuex.Store({
         state.wrongCards.push(card)
       }
     },
-    //間違えた問題に正解したらwrongCardsから削除
-    removeWrongCard(state, card){
-      const newCards = state.wrongCards.filter(function(item){
-        return card !== item
+    //correctCardsにある要素をwrongCardsから削除
+    removeWrongCard(state){
+      state.wrongCards = state.wrongCards.filter(function(card){
+        return state.correctCards.indexOf(card) === -1
       })
-      state.wrongCards = newCards
     },
     //正解した問題をcorrectCardsに追加
     pushCorrectCard(state, card){
