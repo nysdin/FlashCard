@@ -19,7 +19,7 @@ export default {
       }else if(tab.name === 'test'){
         this.$router.push('/test')
       }else if(tab.name === 'wrongCard'){
-        this.$router.push('/wrongCard')
+        this.$router.push('/wrong-card')
       }
     }
   }

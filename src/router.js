@@ -28,8 +28,13 @@ export default new Router({
     },
     {
       path: '/wrong-test',
-      name: 'wrong-test',
+      name: 'wrongTest',
       component: () => import(/* webpackChunkName: "wrongTest" */'./views/WrongTest.vue')
+    },
+    {
+      path: '/wrong-card',
+      name: 'wrongCard',
+      component: () => import(/* webpackChunkName: "wrongCard" */'./views/WrongCard.vue')
     }
   ]
 })
