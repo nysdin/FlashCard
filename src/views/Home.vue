@@ -2,11 +2,17 @@
   <div class="home">
     <h1>英単語学習サイト</h1>
 
-    <div class="add-form">
-      英語: <input type="text" v-model="englishWord"><br/>
-      日本語：<input type="text" v-model="japaneseWord"><br/>
-      <button @click="addCard">追加</button>
-    </div>
+    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form-item label="English">
+      <el-input v-model="formInline.english" placeholder="English"></el-input>
+    </el-form-item>
+    <el-form-item label="日本語">
+      <el-input v-model="formInline.japanese" placeholder="日本語"></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="addCard">追加</el-button>
+    </el-form-item>
+</el-form>
 
     <CardList />
   </div>
@@ -24,34 +30,19 @@ export default {
   },
   data(){
     return {
-      englishWord: '',
-      japaneseWord: '',
-    }
-  },
-  computed: {
-    //間違えた単語の配列に要素があるかどうかを判定
-    wrongCardsEmpty(){
-      if(this.$store.state.wrongCards.length){
-        return true 
+      formInline: {
+        english: '',
+        japanese :'',
       }
-      return false
     }
   },
   methods: {
     addCard(){
-      this.$store.commit('createCard', {english: this.englishWord, japanese: this.japaneseWord})
-      this.englishWord = '' 
-      this.japaneseWord = ''
+      this.$store.commit('createCard', {english: this.formInline.english, japanese: this.formInline.japanese})
+      this.formInline.englishWord = '' 
+      this.formInline.japaneseWord = ''
     }
   }
 }
 </script>
 
-<style>
-.add-form{
-  padding: 30px;
-  width: 50%;
-  margin: 0 auto 20px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-</style>
