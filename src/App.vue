@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
-      <el-tabs :tab-position="'bottom'" @tab-click="changePage" :stretch="true">
-        <el-tab-pane label="Home" name="home"></el-tab-pane>
-        <el-tab-pane label="Test" name="test"></el-tab-pane>
-        <el-tab-pane label="WrongCard" name="wrongCard"></el-tab-pane>
+    <el-tabs :tab-position="'top'" @tab-click="changePage" :stretch="true">
+      <el-tab-pane label="Home" name="home"></el-tab-pane>
+      <el-tab-pane label="Test" name="test"></el-tab-pane>
+      <el-tab-pane label="WrongCard" name="wrongCard"></el-tab-pane>
     </el-tabs>
+    <router-view/>
   </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
 }
 #nav {
   padding: 30px;
