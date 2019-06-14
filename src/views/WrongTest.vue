@@ -35,6 +35,7 @@ export default {
             //質問が終わったら結果画面に遷移
             if(this.quizeNumber === this.$store.state.wrongCards.length - 1){
                 this.$router.push({ name: 'result', params: { count: this.correctNumber } })
+                this.$store.commit('removeWrongCard')
             }else{
                 this.quizeNumber += 1
             }
