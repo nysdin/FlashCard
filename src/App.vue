@@ -2,12 +2,29 @@
   <div id="app">
     <router-view/>
       <el-tabs :tab-position="'bottom'" @tab-click="changePage" :stretch="true">
-        <el-tab-pane label="Home"></el-tab-pane>
-        <el-tab-pane label="Test"></el-tab-pane>
-        <el-tab-pane label="WrongCard"></el-tab-pane>
+        <el-tab-pane label="Home" name="home"></el-tab-pane>
+        <el-tab-pane label="Test" name="test"></el-tab-pane>
+        <el-tab-pane label="WrongCard" name="wrongCard"></el-tab-pane>
     </el-tabs>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  methods: {
+    changePage(tab){
+      if(tab.name === 'home'){
+        this.$router.push('/')
+      }else if(tab.name === 'test'){
+        this.$router.push('/test')
+      }else if(tab.name === 'wrongCard'){
+        this.$router.push('/wrongCard')
+      }
+    }
+  }
+}
+</script>
 
 <style>
 #app {
