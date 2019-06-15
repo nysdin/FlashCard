@@ -1,20 +1,14 @@
 <template>
     <div class="card-list-container">
-        <ul class="cards-box">
-            <li class="card-item" v-for="card in cards" :key="card.id">
-                <p>{{ card.english }}</p>
-                <p>{{ card.japanese }}</p>
-            </li>
-        </ul>
 
-        <el-table :data="cards" tyle="width: 100%" >
-            <el-table-column label="English" width="180" prop="english">
+        <el-table :data="cards" style="width: 100%" >
+            <el-table-column label="English" prop="english" :align="'center'">
 
             </el-table-column>
-            <el-table-column label="日本語" width="180" prop="japanese">
+            <el-table-column label="日本語" prop="japanese" :align="'center'">
                 
             </el-table-column>
-            <el-table-column label="操作">
+            <el-table-column label="操作" :align="'center'">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="handleEdit(scope.row.id)">Edit</el-button>
                     <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">Delete</el-button>
@@ -36,19 +30,7 @@ export default {
 </script>
 
 <style>
-ul{
-    list-style-type: none;
-}
 
-.cards-box{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.card-item{
-    width: 24%;
-}
 </style>
 
 
