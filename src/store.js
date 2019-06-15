@@ -12,7 +12,10 @@ export default new Vuex.Store({
   mutations: {
     //cardを追加
     createCard(state, card){
-      state.cards.push(card)
+      const maxId = state.cards.reduce(function(prev, next){
+        return prev < next.id ? next.id : prev
+      }, 0)
+      state.cards.push({ id: maxId + 1, ...card})
     },
     //間違えたCardをwrongCardsに追加
     pushWrongCard(state, card){
