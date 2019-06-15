@@ -2,6 +2,8 @@
   <div class="home">
     <h1>英単語学習サイト</h1>
 
+    <el-alert title="記入漏れが存在します。" type="error" show-icon v-if="error" @close="changeError"></el-alert>
+
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
     <el-form-item label="English">
       <el-input v-model="formInline.english" placeholder="English"></el-input>
@@ -30,17 +32,26 @@ export default {
   },
   data(){
     return {
+      error: false,
       formInline: {
         english: '',
-        japanese :'',
+        japanese :''
       }
     }
   },
   methods: {
     addCard(){
-      this.$store.commit('createCard', {english: this.formInline.english, japanese: this.formInline.japanese})
-      this.formInline.englishWord = '' 
-      this.formInline.japaneseWord = ''
+      if(this.formInline.english === '' || this.formInline.japanese === ''){
+        this.error = true
+      }else {
+        this.error = false
+        this.$store.commit('createCard', {english: this.formInline.english, japanese: this.formInline.japanese})
+        this.formInline.englishWord = '' 
+        this.formInline.japaneseWord = ''
+      }
+    },
+    changeError(){
+      this.error = false
     }
   }
 }
