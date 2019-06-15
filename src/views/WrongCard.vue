@@ -13,7 +13,7 @@
             <el-table-column label="操作" :align="'center'">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="handleEdit(scope.row.id)">Edit</el-button>
-                    <el-button size="mini" type="danger" @click="handleDelete(scope.row.id)">Delete</el-button>
+                    <el-button size="mini" type="danger" @click="deleteCard(scope.row.id)">Delete</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -29,6 +29,11 @@ export default {
         },
         wrongCardsEmpty(){
             return this.$store.state.wrongCards.length
+        }
+    },
+    methods: {
+        deleteCard(id){
+            this.$store.commit('deleteWrongCard', id)
         }
     }
 }

@@ -34,6 +34,24 @@ export default new Vuex.Store({
     //正解した問題をcorrectCardsに追加
     pushCorrectCard(state, card){
       state.correctCards.push(card)
+    },
+    //登録している単語を削除
+    deleteCard(state, id){
+      const card = state.cards.find(function(card){
+        return card.id === id 
+      })
+      state.cards = state.cards.filter(function(item){
+        return item !== card 
+      })
+    },
+    //登録している間違った単語を削除
+    deleteWrongCard(state, id){
+      const card = state.wrongCards.find(function(card){
+        return card.id === id
+      })
+      state.wrongCards = state.wrongCards.filter(function(item){
+        return item !== card
+      })
     }
   },
   actions: {
