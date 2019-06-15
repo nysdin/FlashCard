@@ -27,7 +27,7 @@
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">キャンセル</el-button>
-                <el-button type="primary" @click="dialogVisible = false">変更</el-button>
+                <el-button type="primary" @click="editCard(editId)">変更</el-button>
             </span>
         </el-dialog>
     </div>
@@ -43,6 +43,7 @@ export default {
             japanese: '',
             editEnglish: '',
             editJapanese: '',
+            editId: 0,
         }
     },
     computed: {
@@ -62,7 +63,13 @@ export default {
             })
             this.editEnglish = card.english
             this.editJapanese = card.japanese
+            this.editId = card.id
             this.dialogVisible = true
+        },
+        //モーダルの変更ボタン押下で単語の変更を実施
+        editCard(id){
+            this.$store.commit('editCard', id)
+            this.dialogVisible = false
         }
     }
 }
