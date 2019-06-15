@@ -52,6 +52,14 @@ export default new Vuex.Store({
       state.wrongCards = state.wrongCards.filter(function(item){
         return item !== card
       })
+    },
+    //登録した単語の英語、もしくは日本語を変更
+    editCard(state, card){
+      const editedCard = state.cards.find(function(item){
+        return item.id === card.id 
+      })
+      editedCard.english = card.english
+      editedCard.japanese = card.japanese
     }
   },
   actions: {

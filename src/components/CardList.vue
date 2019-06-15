@@ -68,7 +68,7 @@ export default {
         },
         //モーダルの変更ボタン押下で単語の変更を実施
         editCard(id){
-            this.$store.commit('editCard', id)
+            this.$store.commit('editCard', { id, english: this.editEnglish, japanese: this.editJapanese})
             this.dialogVisible = false
         }
     }
