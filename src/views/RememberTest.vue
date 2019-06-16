@@ -1,7 +1,7 @@
 <template>
     <div class="test-container">
         <div class="test-box">
-            <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.cards.length }}問中</h1>
+            <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.quizeNumbers }}問中</h1>
             <p>{{ currentQuize.japanese }}</p>
             答え： <input type="text" v-model="english" @keydown.enter="answerQuize(currentQuize)">
         </div>
@@ -48,7 +48,7 @@ export default {
                 this.$store.commit('pushWrongCard', quize)
             }
             //問題数が最後なら結果画面に遷移
-            if(this.quizeNumber === this.$store.state.cards.length - 1 ){
+            if(this.quizeNumber === this.$store.state.quizeNumbers - 1 ){
                 this.$router.push({ name: 'result', params: { count: this.correctNumber } })
             }else{
                 this.quizeNumber += 1

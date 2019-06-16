@@ -22,6 +22,7 @@ export default {
     methods: {
         setQuizeNumber(){
             this.$store.commit('setQuizeNumbers', this.num)
+            this.$router.push('/test')
         }
     }
 }
