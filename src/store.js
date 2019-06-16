@@ -8,6 +8,7 @@ export default new Vuex.Store({
     cards: [{id: 1, english: 'hello', japanese: 'こんにちは'}, {id: 2, english: 'soccer', japanese: 'サッカー'}],
     wrongCards: [],
     correctCards: [],
+    quizeNumbers: 1,
   },
   mutations: {
     //cardを追加
@@ -60,6 +61,10 @@ export default new Vuex.Store({
       })
       editedCard.english = card.english
       editedCard.japanese = card.japanese
+    },
+    //出題する問題数を設定
+    setQuizeNumbers(state, num){
+      state.quizeNumbers = num
     }
   },
   actions: {

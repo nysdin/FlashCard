@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         setQuizeNumber(){
-            console.log(this.num)
+            this.$store.commit('setQuizeNumbers', this.num)
         }
     }
 }
