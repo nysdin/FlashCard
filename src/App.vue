@@ -17,7 +17,7 @@ export default {
       if(tab.name === 'home'){
         this.$router.push('/')
       }else if(tab.name === 'test'){
-        this.$router.push('/test')
+        this.$router.push('/start')
       }else if(tab.name === 'wrongCard'){
         this.$router.push('/wrong-card')
       }
