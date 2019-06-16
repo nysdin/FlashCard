@@ -3,10 +3,10 @@
         <div class="test-box">
             <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.quizeNumbers }}問中</h1>
             <p>{{ currentQuize.japanese }}</p>
-            答え： <input type="text" v-model="english" @keydown.enter="answerQuize(currentQuize)">
+            <el-input placeholder="English" v-model="english" clearable @keydown.enter="answerQuize(currentQuize)" style="width: 30%">
+            </el-input> <br />
+            <el-button type="primary" @click="answerQuize(currentQuize)" class="answer-button">解答</el-button>
         </div>
-
-        <router-link to="/">ホームへ戻る</router-link>
     </div>
 </template>
 
@@ -58,3 +58,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.answer-button{
+    margin-top: 30px;
+}
+</style>
