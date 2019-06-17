@@ -1,23 +1,34 @@
 <template>
     <div class="test-container">
-        <div class="test-box">
-            <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.quizeNumbers }}問中</h1>
-            <p>{{ currentQuize.japanese }}</p>
-            <el-input placeholder="English" v-model="english" clearable @keydown.enter="answerQuize(currentQuize)" style="width: 30%">
-            </el-input> <br />
-            <el-button type="primary" @click="answerQuize(currentQuize)" class="answer-button">解答</el-button>
-        </div>
+        <template v-if="finished">
+            <Result :correctNumber="correctNumber"/>
+        </template>
+        <template v-else>
+            <div class="test-box">
+                <h1>{{ quizeNumber + 1 }}問目 / {{ this.$store.state.quizeNumbers }}問中</h1>
+                <p>{{ currentQuize.japanese }}</p>
+                <el-input placeholder="English" v-model="english" clearable @keydown.enter="answerQuize(currentQuize)" style="width: 30%">
+                </el-input> <br />
+                <el-button type="primary" @click="answerQuize(currentQuize)" class="answer-button">解答</el-button>
+            </div>
+        </template>
     </div>
 </template>
 
 <script>
+import Result from '../components/Result'
+
 export default {
     name: 'RememberTest',
+    components: {
+        Result
+    },
     data(){
         return {
             quizeNumber: 0,
             correctNumber: 0,
             english: '',
+            finished: false,
         }
     },
     computed: {
@@ -49,7 +60,7 @@ export default {
             }
             //問題数が最後なら結果画面に遷移
             if(this.quizeNumber === this.$store.state.quizeNumbers - 1 ){
-                this.$router.push({ name: 'result', params: { count: this.correctNumber } })
+                this.finished = true
             }else{
                 this.quizeNumber += 1
             }
