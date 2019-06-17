@@ -1,7 +1,7 @@
 <template>
     <div class="test-container">
         <template v-if="finished">
-            <Result :correctNumber="correctNumber"/>
+            <Result :correctNumber="correctNumber" :correctCards="correctCards" :wrongCards="wrongCards"/>
         </template>
         <template v-else>
             <div class="test-box">
@@ -29,6 +29,8 @@ export default {
             correctNumber: 0,
             english: '',
             finished: false,
+            correctCards: [],
+            wrongCards: [],
         }
     },
     computed: {
@@ -55,8 +57,10 @@ export default {
             //答えが一致したら正答数を加算、不一致ならwrongListにcardを記録
             if(this.english === this.currentQuize.english){
                 this.correctNumber += 1
+                this.correctCards.push(quize)
             } else {
                 this.$store.commit('pushWrongCard', quize)
+                this.wrongCards.push(quize)
             }
             //問題数が最後なら結果画面に遷移
             if(this.quizeNumber === this.$store.state.quizeNumbers - 1 ){
